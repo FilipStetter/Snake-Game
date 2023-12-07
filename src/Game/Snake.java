@@ -30,5 +30,4 @@ public class Snake extends JFrame {
             ex.setVisible(true);
         });
     }
-
 }
