@@ -42,6 +42,8 @@ public class Board extends JPanel implements ActionListener {
     private Image apple;
     private Image head;
 
+    private int points = 0;
+
     public Board() {
 
         initBoard();
@@ -115,8 +117,7 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void gameOver(Graphics g) {
-
-        String msg = "Game Over";
+        String msg = "Game Over - Points: " + points;
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics metr = getFontMetrics(small);
 
@@ -126,10 +127,9 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void checkApple() {
-
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
-
             dots++;
+            points++; // Increment points when apple is eaten
             locateApple();
         }
     }
