@@ -1,5 +1,6 @@
 package Game;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class View {
@@ -23,6 +24,17 @@ public class View {
 
             gameOver(g);
         }
+    }
+    private void loadImages() {
+
+        ImageIcon iid = new ImageIcon("src/resources/dot.png");
+        ball = iid.getImage();
+
+        ImageIcon iia = new ImageIcon("src/resources/apple.png");
+        apple = iia.getImage();
+
+        ImageIcon iih = new ImageIcon("src/resources/head.png");
+        head = iih.getImage();
     }
     @Override
     public void paintComponent(Graphics g) {

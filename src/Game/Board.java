@@ -30,6 +30,7 @@ public class Board extends JPanel implements ActionListener {
     private int dots;
     private int apple_x;
     private int apple_y;
+    //
 
     private boolean leftDirection = false;
     private boolean rightDirection = true;

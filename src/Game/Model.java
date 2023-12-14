@@ -30,4 +30,12 @@ public class Model {
             timer.stop();
         }
     }
+    private void locateApple() {
+
+        int r = (int) (Math.random() * RAND_POS);
+        apple_x = ((r * DOT_SIZE));
+
+        r = (int) (Math.random() * RAND_POS);
+        apple_y = ((r * DOT_SIZE));
+    }
 }
