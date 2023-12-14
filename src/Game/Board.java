@@ -17,6 +17,7 @@ import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
 
+    //MODEL
     private final int B_WIDTH = 300;
     private final int B_HEIGHT = 300;
     private final int DOT_SIZE = 10;
@@ -45,11 +46,13 @@ public class Board extends JPanel implements ActionListener {
 
     private int points = 0;
 
+    //VIEW
     public Board() {
 
         initBoard();
     }
 
+    //VIEW
     private void initBoard() {
 
         addKeyListener(new TAdapter());
@@ -61,6 +64,7 @@ public class Board extends JPanel implements ActionListener {
         initGame();
     }
 
+    //VIEW
     private void loadImages() {
 
         ImageIcon iid = new ImageIcon("src/resources/dot.png");
@@ -73,6 +77,7 @@ public class Board extends JPanel implements ActionListener {
         head = iih.getImage();
     }
 
+    //MODEL
     private void initGame() {
 
         dots = 3;
@@ -88,6 +93,7 @@ public class Board extends JPanel implements ActionListener {
         timer.start();
     }
 
+    //VIEW
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -95,6 +101,7 @@ public class Board extends JPanel implements ActionListener {
         doDrawing(g);
     }
 
+    //VIEW
     private void doDrawing(Graphics g) {
 
         if (inGame) {
@@ -117,6 +124,7 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
+    //MODEL
     private void gameOver(Graphics g) {
         String msg = "Game Over - Points: " + points;
         Font small = new Font("Helvetica", Font.BOLD, 14);
@@ -127,6 +135,7 @@ public class Board extends JPanel implements ActionListener {
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
     }
 
+    //MODEL
     private void checkApple() {
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
             dots++;
@@ -135,6 +144,7 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
+    //CONTROLLER
     private void move() {
 
         for (int z = dots; z > 0; z--) {
@@ -159,6 +169,7 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
+    //MODEL
     private void checkCollision() {
 
         for (int z = dots; z > 0; z--) {
@@ -189,6 +200,7 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
+    //MODEL
     private void locateApple() {
 
         int r = (int) (Math.random() * RAND_POS);
@@ -198,6 +210,7 @@ public class Board extends JPanel implements ActionListener {
         apple_y = ((r * DOT_SIZE));
     }
 
+    //CONTROLLER
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -211,7 +224,8 @@ public class Board extends JPanel implements ActionListener {
         repaint();
     }
 
-    private class TAdapter extends KeyAdapter {
+    //CONTROLLER
+    static class TAdapter extends KeyAdapter {
 
         @Override
         public void keyPressed(KeyEvent e) {
