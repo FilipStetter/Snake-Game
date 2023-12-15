@@ -144,6 +144,10 @@ public class Model extends JPanel implements ActionListener{
         }
     }
 
+    public int getDELAY() {
+        return DELAY;
+    }
+
     public int getDots() {
         return dots;
     }
