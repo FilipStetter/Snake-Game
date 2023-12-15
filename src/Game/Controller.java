@@ -22,6 +22,7 @@ public class Controller extends KeyAdapter implements ActionListener {
         frame.setVisible(true);
 
         startGame();
+
     }
 
 
